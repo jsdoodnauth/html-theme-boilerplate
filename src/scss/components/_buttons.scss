@@ -143,6 +143,13 @@
   }
 }
 
+.dark .collection-outline .btn-floating {
+  background-color: color("shades", "white");
+  i {
+    color: $button-floating-background;
+  }
+}
+
 // button fix
 button.btn-floating {
   border: $button-border;

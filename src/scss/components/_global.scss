@@ -520,22 +520,37 @@ td, th{
 .collection {
   margin: $element-top-margin 0 $element-bottom-margin 0;
   border: 1px solid $collection-border-color;
-  border-radius: 2px;
-  overflow: hidden;
-  position: relative;
+  border-radius: $round;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  .collection-flex {
+    flex: 0 0 100%;
+    &-50 {  
+      flex: 0 0 50%;
+    }
+    &-25 {  
+      flex: 0 0 25%;
+    }
+  }
 
   .collection-item {
     background-color: $collection-bg-color;
     line-height: $collection-line-height;
-    padding: 10px 20px;
+    padding: 1rem 1.25rem;
     margin: 0;
     border-bottom: 1px solid $collection-border-color;
 
     // Avatar Collection
     &.avatar {
-      min-height: 84px;
+      min-height: 95px;
       padding-left: 72px;
       position: relative;
+      
+      &-large {
+        padding-left: 6rem;
+      }
 
       // Don't style circles inside preloader classes.
       &:not(.circle-clipper) > .circle,
@@ -544,7 +559,8 @@ td, th{
         width: 42px;
         height: 42px;
         overflow: hidden;
-        left: 15px;
+        left: 1rem;
+        top: 1rem;
         display: inline-block;
         vertical-align: middle;
       }
@@ -556,26 +572,46 @@ td, th{
         text-align: center;
       }
 
+      &:not(.circle-clipper) > .rounded,
+      :not(.circle-clipper) > .rounded {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        overflow: hidden;
+        left: 1rem;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .btn-floating {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+      }
+
 
       .title {
-        font-size: 16px;
+        margin: 0 auto;
+        font-size: 1.5rem;
+        color: $off-black;
       }
 
       p {
         margin: 0;
+        font-weight: 300;
+        letter-spacing: 0.25px;
       }
 
       .secondary-content {
         position: absolute;
-        top: 16px;
-        right: 16px;
+        top: 1rem;
+        right: 1rem;
+
+        &.rounded {
+          left: unset;
+        }
       }
 
-    }
-
-
-    &:last-child {
-      border-bottom: none;
     }
 
     &.active {
@@ -586,7 +622,35 @@ td, th{
         color: #fff;
       }
     }
+
+    &:not(.collection-pill) {
+      .collection-item:last-child {
+        border-bottom: none;
+      }
+    }
   }
+
+  &-pill {
+    border: 0 none;
+
+    .collection-item {
+      margin: 0 0.5rem 0.5rem auto; 
+      border-radius: $round;
+      border: 0 none;
+      background-color: #EAEDF6;
+      background-image: linear-gradient(20deg, #E2E5ED, #F1F4F4);
+      color: color("grey", "darken-2");
+    }
+  }
+
+  &-outline {
+    .collection-item {
+      border: 1px solid color("grey", "lighten-1");
+      background-color: transparent;
+      background-image: none;
+    }
+  }
+
   a.collection-item{
     display: block;
     transition: .25s;
@@ -612,6 +676,25 @@ td, th{
     }
   }
 
+}
+
+.dark {
+  .collection {
+    &:not(.collection-outline) {
+      .title {
+        color: $off-black;
+      }
+    }
+    &.collection-outline {
+      .title {
+        color: color("shades", "white");
+      }
+      .collection-item {
+        border: 1px solid $primary-color-lighter; 
+        color: color("grey", "lighten-1");
+      }
+    }
+  }
 }
 // Made less specific to allow easier overriding
 .secondary-content {
@@ -753,6 +836,10 @@ td, th{
   border-radius: 50%;
 }
 
+.rounded {
+  border-radius: $round;
+}
+
 .center-block {
   display: block;
   margin-left: auto;
@@ -768,4 +855,8 @@ td, th{
 
 .no-padding {
   padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
 }

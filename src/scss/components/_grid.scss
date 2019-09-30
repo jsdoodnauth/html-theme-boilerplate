@@ -33,19 +33,136 @@
   }
 }
 
-.hero {
-  height: 50vh;
-  padding: 1rem;
+.hero-section {
   margin: 1rem auto;
-  border-radius: $round;
-  background-color: color("blue-grey", "darken-4");
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .hero-image {
+    img {
+      border-radius: $round;
+    }
+  }
+
+  .hero-content {
+    text-align: left;
+    border-radius: $round;
+    padding: 2.5rem 2rem;
+    color: color("blue-grey", "darken-4");
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    max-width: 30rem;
+    background-color: color("shades", "white");
+
+    .title {
+      margin: 0;
+    }
+  }
+}
+
+.feature-section {
+  display: flex;
+  flex-wrap: wrap;
+
+  .feature-card {
+    flex: 0 0 25%;
+
+    &.feature-avatar-card {
+      flex: 0 0 200px;
+    }
+
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      width: calc(100% - 20px);
+      min-height: 370px;
+      margin: 1rem 0 1rem 0.5rem;
+      padding: 2.25rem 2rem 2rem;
+      background-color: #EAEDF6;
+      background-image: linear-gradient(20deg, #E2E5ED, #F1F4F4);
+      border-radius: $round;
+
+      h2, h3, h4 {
+        margin: 0.5rem 0 0.5rem;
+      }
+
+      p {
+        color: color("grey", "darken-2");
+        margin-top: 0.5rem;
+      }
+    }
+
+    .feature-avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: $round;
+      text-align: center;
+      margin: 0 auto 0.25rem;
+    }
+
+    .feature-btn {
+      align-self: flex-end;
+      margin: auto auto 0;
+      border-radius: $round;
+      padding: 0 3rem;
+    }
+  }
+
+  &.feature-outline {
+    .feature-item {
+      border: 1px solid color("grey", "lighten-1");
+      background-color: transparent;
+      background-image: none;
+    }
+    
+    .btn {
+      background-color: $primary-color;
+    }
+  }
 }
 
 .card-section {
   padding: 1rem;
   margin: 1rem auto;
   border-radius: $round;
-  background-color: color("blue-grey", "lighten-5");
+
+  .title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .collection {
+    margin: 0 auto;
+  }
+}
+
+.dark.card-section {
+  background-color: $primary-color;
+  .title {
+    color: color("shades", "white");
+  }
+
+  .feature-section.feature-outline {
+    .feature-item {
+      border: 1px solid $primary-color-lighter; 
+      background-color: transparent;
+      background-image: none;
+      color: color("shades", "white");
+
+      p {
+        color: color("grey", "lighten-1");
+      }
+
+      .btn {
+        background-color: color("shades", "white");
+        color: $primary-color;
+      }
+    }
+  }
 }
 
 // Mixins to eliminate code repitition

@@ -62,7 +62,12 @@ nav {
     color: $navbar-font-color;
     display: inline-block;
     font-size: $navbar-brand-font-size;
+    font-family: $font-heading-stack;
     padding: 0 1rem;
+    b {
+      letter-spacing: -4px;
+      padding-right: 4px;
+    }
 
     &.center {
       left: 50%;
