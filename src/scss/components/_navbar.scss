@@ -190,7 +190,7 @@ nav {
 }
 
 .navbar-pill {
-  border-radius: $round;
+  border-radius: 0 0 $round $round;
   overflow: hidden;
 }
 

@@ -19,8 +19,7 @@
 }
 
 .section {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem 1.5rem;
 
   &.no-pad {
     padding: 0;
@@ -125,7 +124,7 @@
 }
 
 .card-section {
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   margin: 1rem auto;
   border-radius: $round;
 
@@ -133,6 +132,7 @@
     font-weight: 700;
     font-size: 2.5rem;
     margin-bottom: 0;
+    margin-top: 0.5rem;
   }
 
   .collection {
@@ -140,8 +140,23 @@
   }
 }
 
+.invert.card-section {
+  .title {
+    color: color("shades", "white");
+  }  
+}
+
+.invert.dark.card-section {
+  .title {
+    color: color("shades", "white");
+  }  
+  background-color: transparent;
+  background-image: none;
+}
+
 .dark.card-section {
   background-color: $primary-color;
+  background-image: linear-gradient(90deg, $primary-color-dark 0rem, $primary-color 15rem);
   .title {
     color: color("shades", "white");
   }
